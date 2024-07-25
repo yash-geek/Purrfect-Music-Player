@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purrfect - Web Player: Music for everyone</title>
+    <meta
+      name="description"
+      content="Listen to your favorite music on Purrfect's Web Player. Discover new songs and playlists."
+    />
+    <meta
+      name="keywords"
+      content="Purrfect , Web Player, music streaming, songs, Playlists"
+    />
+    <meta name="author" content="511 Kinderheim Inc." />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/utility.css" />
+  </head>
+
+  <body>
+    <div class="container flex">
+      <div class="left flex">
+        <img src="logos/close.svg" alt="close" class="closeList" />
+        <div class="home margin-1">
+          <ul>
+            <li>
+              <img id="purrfect" src="logos/mainlogo.png" alt="purrfect" />
+            </li>
+            <li id="Home" class="flex myfont">
+              <img src="logos/home.svg" alt="home" />Home
+            </li>
+            <li class="flex myfont" id="search">
+              <img src="logos/search.svg" alt="search" />Search
+            </li>
+          </ul>
+        </div>
+        <div class="library margin-1 flex">
+          <div class="leftlib flex">
+            <div class="lib flex hovering2">
+              <img class="icon-size" src="logos/lib.svg" alt="library" />
+              <h2 class="myfont">Your Library</h2>
+            </div>
+            <div class="flex align-items justify-content">
+              <a href="#"
+                ><img
+                  class="icon-size hovering1 circle"
+                  src="logos/plus.svg"
+                  alt="expand"
+              /></a>
+            </div>
+          </div>
+          <div class="songList">
+            <ul></ul>
+          </div>
+          <!-- <div class="sidescroll flex">
+            <div class="playlist flex myfont">
+              <span class="padding1 weight1">Create your first playlist</span>
+              <span class="padding1 weight2">It's easy, we'll help you</span>
+              <div
+                class="createplaylist justify-content align-items myfont weight2"
+              >
+                Create playlist
+              </div>
+            </div>
+            <div class="podcast flex myfont">
+              <span class="padding1 weight1"
+                >Let's find some podcasts to follow</span
+              >
+              <span class="padding1 weight2">we'll keep you updated</span>
+              <div
+                class="createplaylist justify-content align-items myfont weight2"
+              >
+                Browse podcasts
+              </div>
+            </div>
+          </div> -->
+          <div class="footer1 flex myfont fcolor1">
+            <span
+              ><a href="mailto:yashgautam8730@gmail.com">Contact Us</a></span
+            >
+            <span><a href="#">Safety & Privacy Center</a></span>
+            <span><a href="#">Privacy Policy</a></span>
+            <span><a href="#">Cookies</a></span>
+            <span><a href="#">About Ads</a></span>
+            <span><a href="#">Accesibility</a></span>
+            <span><a href="#">Cookies</a></span>
+          </div>
+          <!-- <div class="myfont langu flex align-items">
+            <img class="icon-size" src="logos/globe.svg" alt="lang" />
+            <span>English</span>
+          </div> -->
+        </div>
+      </div>
+      <div class="right flex margin-1">
+        <div class="header flex">
+          <div class="arrows flex align-items">
+            <img class="hamburger" src="logos/hamburger.svg" alt="gotosongs" />
+
+            <div id="leftarr" class="circle flex align-items justify-content">
+              <img class="circle" src="logos/leftarrow.svg" alt="navigate left" />
+            </div>
+            <div id="rightarr" class="circle flex align-items justify-content">
+              <img class="circle" src="logos/rightarrow.svg" alt="navigate right" />
+            </div>
+          </div>
+
+          <div class="login flex">
+            <a class="myfont signup" href="#">Sign up</a>
+            <a class="loginbutton myfont" href="#">Log in</a>
+          </div>
+        </div>
+        <div class="spotifyPlaylists">
+          <h1 class="myfont">The Purrfect Playlists</h1>
+          <div class="cardContainer flex">
+            <!-- <div data-folder = "mySongs" class="card myfont flex">
+              <img src="images/first.jpeg" alt="" />
+              <button class="playbutton">
+                <img src="logos/playbutton.svg" alt="" />
+              </button>
+              <h3>My Album</h3>
+              <p>Based on your recent activities</p>
+            </div>
+
+            <div data-folder = "yourSongs"  class="card myfont flex">
+              <img src="images/second.jpeg" alt="" />
+              <button class="playbutton">
+                <img src="logos/playbutton.svg" alt="" />
+              </button>
+              <h3>Your Album</h3>
+              <p>Based on your recent activities</p>
+            </div>
+            <div class="card myfont flex">
+              <img src="images/third.jpeg" alt="" />
+              <button class="playbutton">
+                <img src="logos/playbutton.svg" alt="" />
+              </button>
+              <h3>Our Picks</h3>
+              <p>Based on your recent activities</p>
+            </div>
+            <div class="card myfont flex">
+              <img src="images/fourth.jpeg" alt="" />
+              <button class="playbutton">
+                <img src="logos/playbutton.svg" alt="" />
+              </button>
+              <h3>Our Picks</h3>
+              <p>Based on your recent activities</p>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="playbar">
+          <div class="player flex">
+            <div class="currentSongInfo"></div>
+            <div class="songButtons flex align-items">
+              <button
+                class="previousTrack playbarButtons"
+                id="previousTrackButton"
+              >
+                <img
+                  id="previousTrackButtonIcon"
+                  src="logos/previous.svg"
+                  alt="previous Track"
+                />
+              </button>
+
+              <button class="playTrack playbarButtons" id="playTrackButton">
+                <img id="playTrackButtonIcon" src="logos/play.svg" alt="play track" />
+              </button>
+
+              <button class="nextTrack playbarButtons" id="nextTrackButton">
+                <img src="logos/next.svg" alt="next track" />
+              </button>
+              <button class="volume playbarButtons" id="sound">
+                <img class="volume" src="logos/volume.svg" alt="volume" />
+              </button>
+            </div>
+            <div class="songTime"></div>
+          </div>
+
+          <div class="seekbar">
+            <div class="grabber"></div>
+          </div>
+        </div>
+        <div class="volumeseekbar">
+          <img src="logos/close.svg" alt="close" class="exit" />
+          <div class="seekvolume">
+            <div class="voldragger"></div>
+          </div>
+          <img class="mute" src="logos/unmute.svg" alt="mute" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="js/index.js"></script>
+</html>

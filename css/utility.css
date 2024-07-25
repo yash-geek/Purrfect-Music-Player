@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('/Circular/CircularStd-Black.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+.margin-1{
+    margin : 6px;
+}
+.myfont{
+    font-family: 'CustomFont', sans-serif;
+}
+.weight1{
+    font-weight: bolder;
+}
+
+.justify-content{
+    justify-content: center;
+}
+.align-items{
+    align-items: center;
+}
+.flex{
+    display: flex;
+}
+.icon-size{
+    width: 25px;;
+}
+.padding1{
+    padding: 5px;
+}
+.fcolor1{
+    color: #a7a7a7;
+}
+.hovering1:hover{
+    background-color: #242424;
+    color: white;
+    
+}
+.hovering2:hover{
+    color: white;
+}
+.circle{
+    border-radius: 1000px;
+}
+
+
+/* Custom scrollbar styles */
+html::-webkit-scrollbar {
+    width: 12px; /* Adjust the width of the scrollbar */
+    height: 12px; /* Adjust the height of the scrollbar (for horizontal scrollbars) */
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent; /* Make the scrollbar track transparent */
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5); /* Set the color for the scrollbar thumb */
+    border-radius: 0; /* No rounded corners, making it a rectangle */
+    display: none; /* Initially hide the scrollbar thumb */
+}
+
+/* Show scrollbar thumb when scrolling */
+html.scrolling::-webkit-scrollbar-thumb {
+    display: block; /* Show the scrollbar thumb when scrolling */
+}
+
+html {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* For Firefox */
+}
+::-webkit-scrollbar-button {
+    display: none;
+  }
+
+@keyframes scroll {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.scrolling::-webkit-scrollbar-thumb {
+    animation: scroll 0.3s forwards; 
+}
+
+/* Transition effect */
+::-webkit-scrollbar-thumb {
+    transition: background-color 0.3s ease; /* Smooth transition effect for the thumb */
+}
+.cardContainer::-webkit-scrollbar-button {
+    display: none ;
+}

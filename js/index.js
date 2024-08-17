@@ -7,7 +7,7 @@ cards.forEach(card => {
     card.addEventListener('mouseleave', () => {
         playButton.style.display = 'none';
     });
-});
+});n
 
 
 let currentSong = new Audio();
@@ -107,11 +107,11 @@ async function displayAlbums() {
 
         if (e.href.includes("/songs/")) {
             let folder = e.href.split("/").slice(-1)[0]
-            console.log(e.href.split("/").slice(-1));
-            console.log("d");
+            //console.log(e.href.split("/").slice(-1));
+            //console.log("d");
             let a = await fetch(`/songs/${folder}/info.json`);
             let response = await a.json();
-            console.log(response)
+            //console.log(response)
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card myfont flex">
                     <img src="/songs/${folder}/cover.jpeg" alt="" />
                     <button class="playbutton">

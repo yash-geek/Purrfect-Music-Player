@@ -7,7 +7,7 @@ cards.forEach(card => {
     card.addEventListener('mouseleave', () => {
         playButton.style.display = 'none';
     });
-});n
+});
 
 
 let currentSong = new Audio();
@@ -16,7 +16,8 @@ let currFolder;
 currentSong.volume = 0.75; //later change 1
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`/${folder}/`);
+
+    let a = await fetch(`${folder}`)
 
     let response = await a.text();
 
@@ -41,7 +42,7 @@ async function getSongs(folder) {
                   <div class="imgnameartist flex">
                     <img id="musicicon" src="logos/music.svg" alt="">
                     <div class="info flex">
-                      <span title= "${song.replaceAll("%20", " ").replace(".mp3","")}" class="songName">${song.replaceAll("%20", " ")}</span>
+                      <span title= "${song.replaceAll("%20", " ").replace(".mp3", "")}" class="songName">${song.replaceAll("%20", " ")}</span>
                       <span class="artist">Yash</span>
                     </div>
                   </div>
@@ -73,20 +74,19 @@ async function getSongs(folder) {
 
 const playMusic = (track, pause = false) => {
     // let audio = new Audio("/songs/" + track);
-    currentSong.src = `/${currFolder}/` + track
+    currentSong.src = `${currFolder}/` + track
     if (!pause) {
         currentSong.play();
         playTrackButtonIcon.src = "logos/pause.svg"
     }
     let name;
-    if(track.includes(".mp3")){
-        name = track.replace(".mp3","")
+    if (track.includes(".mp3")) {
+        name = track.replace(".mp3", "")
     }
-    else if(track.includes(".flac")){
-        name = track.replace(".flac","")
+    else if (track.includes(".flac")) {
+        name = track.replace(".flac", "")
     }
     document.querySelector(".currentSongInfo").innerHTML = decodeURI(name)
-    console.log(track.replace(".mp3",""))
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00"
     //volumesetting
     //later change 1
@@ -94,7 +94,7 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`/songs/`);
+    let a = await fetch(`songs`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -102,18 +102,16 @@ async function displayAlbums() {
     let cardContainer = document.querySelector(".cardContainer");
     let array = Array.from(anchors);
 
+
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
 
         if (e.href.includes("/songs/")) {
             let folder = e.href.split("/").slice(-1)[0]
-            //console.log(e.href.split("/").slice(-1));
-            //console.log("d");
-            let a = await fetch(`/songs/${folder}/info.json`);
+            let a = await fetch(`songs/${folder}/info.json`);
             let response = await a.json();
-            //console.log(response)
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card myfont flex">
-                    <img src="/songs/${folder}/cover.jpeg" alt="" />
+                    <img src="songs/${folder}/cover.jpeg" alt="" />
                     <button class="playbutton">
                         <img src="logos/playbutton.svg" alt="" />
                     </button>
@@ -189,18 +187,6 @@ async function main() {
     document.querySelector(".seekbar").addEventListener("click", e => {
         let grab = (e.offsetX / e.target.getBoundingClientRect().width);
         document.querySelector(".grabber").style.left = (grab * 100) + "%";
-        
-
-
-        // document.querySelector(".mute").addEventListener("click", () => {
-        //     if (currentSong.volume != 0) {
-        //         currentSong.volume = 0;
-        //         document.querySelector(".voldragger").style.
-        //             height = 0;
-                
-        //     }
-
-        // document.querySelector(".songTime").innerHTML = `${secondsToTime(currentSong.duration*grab)}/${secondsToTime(currentSong.duration)}`;
 
         currentSong.currentTime = (grab) * currentSong.duration;
     })
@@ -259,7 +245,7 @@ async function main() {
 
     document.querySelector(".seekvolume").addEventListener("click", e => {
         //if (document.querySelector(".mute").src == "logos/mute.svg") {
-            document.querySelector(".mute").src = "logos/unmute.svg"
+        document.querySelector(".mute").src = "logos/unmute.svg"
         //}
         let grab = (e.offsetY / e.target.getBoundingClientRect().height);
         document.querySelector(".voldragger").style.height = ((1 - grab) * 100) + "%";
@@ -267,14 +253,6 @@ async function main() {
 
     })
 
-    //Load Library When card is Clicked
-    // Array.from(document.getElementsByClassName("card")).forEach(e => {
-    //     e.addEventListener("click", async item => {
-    //         songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)
-    //         console.log(`songs/${item.currentTarget.dataset.folder}`)
-
-    //     })
-    // })
 
     document.querySelector(".mute").addEventListener("click", () => {
         if (currentSong.volume != 0) {

@@ -108,6 +108,7 @@ async function displayAlbums() {
 
         if (e.href.includes("/songs/")) {
             let folder = e.href.split("/").slice(-1)[0]
+            console.log(folder)
             let a = await fetch(`songs/${folder}/info.json`);
             let response = await a.json();
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card myfont flex">

@@ -155,7 +155,7 @@ function secondsToTime(seconds) {
 
 
 async function main() {
-
+    console.log("int main")
     await getSongs("songs/mySongs")
     playMusic(songs[0], true);
 

@@ -108,6 +108,7 @@ async function displayAlbums() {
 
         if (e.href.includes("/songs/")) {
             let folder = e.href.split("/").slice(-1)[0]
+            console.log(e.href.split("/"));
             console.log(folder)
             let a = await fetch(`songs/${folder}/info.json`);
             let response = await a.json();

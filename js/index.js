@@ -84,13 +84,13 @@ const playMusic = (track, pause = false) => {
         currentSong.play();
         playTrackButtonIcon.src = "logos/pause.svg"
     }
-    let name;
-    if (track.includes(".mp3")) {
-        name = track.replace(".mp3", "")
-    }
-    else if (track.includes(".flac")) {
-        name = track.replace(".flac", "")
-    }
+    let name = track;
+    // if (track.includes(".mp3")) {
+    //     name = track.replace(".mp3", "")
+    // }
+    // else if (track.includes(".flac")) {
+    //     name = track.replace(".flac", "")
+    // }
     document.querySelector(".currentSongInfo").innerHTML = decodeURI(name)
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00"
     //volumesetting
@@ -112,7 +112,7 @@ async function displayAlbums() {
 
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
-
+        // console.log(e.href.inc)
         if (e.href.includes("/songs/")) {
             let folder = e.href.split("/").slice(-1)[0]
             // console.log(e.href.split("/"));

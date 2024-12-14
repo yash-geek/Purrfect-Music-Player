@@ -1,5 +1,5 @@
 const cards = document.querySelectorAll('.card');
-const baseURL = "https://yash-geek.github.io/Purrfect-Music-Player";
+const baseURL = "";
 // fetch(`${baseURL}mySongs`)
 cards.forEach(card => {
     const playButton = card.querySelector('.playbutton');

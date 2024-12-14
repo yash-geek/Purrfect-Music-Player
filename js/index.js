@@ -1,5 +1,5 @@
 const cards = document.querySelectorAll('.card');
-const baseURL = "https://yash-geek.github.io/Purrfect-Music-Player/";
+const baseURL = "https://yash-geek.github.io/Purrfect-Music-Player";
 // fetch(`${baseURL}mySongs`)
 cards.forEach(card => {
     const playButton = card.querySelector('.playbutton');
@@ -102,7 +102,7 @@ const playMusic = (track, pause = false) => {
 
 async function displayAlbums() {
     
-    let a = await fetch(`songs`);
+    let a = await fetch(`${baseURL}/songs`);
     console.log(a)
     let response = await a.text();
     let div = document.createElement("div");
@@ -119,7 +119,7 @@ async function displayAlbums() {
             let folder = e.href.split("/").slice(-1)[0]
             // console.log(e.href.split("/"));
             // console.log(folder)
-            let a = await fetch(`${baseURL}songs/${folder}/info.json`);
+            let a = await fetch(`${baseURL}/songs/${folder}/info.json`);
             let response = await a.json();
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card myfont flex">
                     <img src="songs/${folder}/cover.jpeg" alt="" />
@@ -135,7 +135,7 @@ async function displayAlbums() {
 
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", async item => {
-            songs = await getSongs(`${baseURL}songs/${item.currentTarget.dataset.folder}`)
+            songs = await getSongs(`${baseURL}/songs/${item.currentTarget.dataset.folder}`)
             //playMusic(songs[0])
 
 
@@ -166,7 +166,7 @@ function secondsToTime(seconds) {
 
 async function main() {
     console.log("int main")
-    await getSongs("/songs/mySongs")
+    await getSongs(`${baseURL}/songs/mySongs`)
     playMusic(songs[0], true);
 
     //showing all songs in the playlist section

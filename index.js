@@ -103,19 +103,21 @@ const playMusic = (track, pause = false) => {
 async function displayAlbums() {
     
     let a = await fetch(`${baseURL}/songs`);
-    console.log(a)
+    //console.log(a)
     let response = await a.text();
+    //console.log(response)
     let div = document.createElement("div");
     div.innerHTML = response;
     let anchors = div.getElementsByTagName("a");
     let cardContainer = document.querySelector(".cardContainer");
     let array = Array.from(anchors);
-
+    //console.log(array)
 
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
         // console.log(e.href.inc)
         if (e.href.includes("/songs/")) {
+            console.log(e.href)
             let folder = e.href.split("/").slice(-1)[0]
             // console.log(e.href.split("/"));
             // console.log(folder)

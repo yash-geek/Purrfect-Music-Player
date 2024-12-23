@@ -101,9 +101,7 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    
     let a = await fetch(`${baseURL}/songs`);
-    console.log(a)
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -165,7 +163,7 @@ function secondsToTime(seconds) {
 
 
 async function main() {
-    console.log("int main")
+    //console.log("Hello")
     await getSongs(`${baseURL}/songs/mySongs`)
     playMusic(songs[0], true);
 

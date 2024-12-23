@@ -105,8 +105,9 @@ async function displayAlbums() {
     let a = await fetch(`${baseURL}/songs`);
     //console.log(a)
     let response = await a.text();
-    //console.log(response)
+    console.log(response)
     let div = document.createElement("div");
+
     div.innerHTML = response;
     let anchors = div.getElementsByTagName("a");
     let cardContainer = document.querySelector(".cardContainer");

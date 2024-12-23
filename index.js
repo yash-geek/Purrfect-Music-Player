@@ -112,7 +112,7 @@ async function displayAlbums() {
     let cardContainer = document.querySelector(".cardContainer");
     let array = Array.from(anchors);
     //console.log(array)
-
+    console.log(array)
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
         // console.log(e.href.inc)

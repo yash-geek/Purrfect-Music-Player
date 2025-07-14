@@ -8,8 +8,6 @@ Purrfect Music Player is a personal, web-based music player developed out of int
 - Interactive and responsive UI
 - Playlist support (if applicable)<img width="1912" height="909" alt="Screenshot 2025-07-14 104756" src="https://github.com/user-attachments/assets/614e3504-5b36-429a-b356-1e7a700cb5fd" />
 
-- Custom themes and animations (if applicable)
-- [Add more features here as your project evolves!]
 
 
 
@@ -30,6 +28,7 @@ To run this project locally:
 2. Open `index.html` in your browser.
 
 _No build step is required since this is a static frontend project._
+_Run using live server._
 
 ## 🤝 Contributing
 

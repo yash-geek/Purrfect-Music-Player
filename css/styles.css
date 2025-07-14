@@ -17,6 +17,8 @@ html{
 }
 .container {
   background-color: black;
+  height: 100vh;
+  overflow:hidden;
 }
 .left {
   width: 25vw;
@@ -109,6 +111,9 @@ html{
 }
 
 .header{
+  height: 5rem;
+  max-height: 5rem;
+  flex:1;
   justify-content: space-between;
   background-color: #101010;
   border-top-left-radius: 10px;
@@ -265,14 +270,18 @@ html{
   font-size: 28px;
 }
 .cardContainer{
+  flex:8;
+  height: calc(100vh - 10rem);
+  min-height: calc(100vh - 10rem);
+  max-height: calc(100vh - 10rem);
   gap: 10px;
   margin: 10px;
-  max-height: 70vh;
   overflow-y: scroll;
   flex-wrap: wrap;
   transition: all 1s;
 }
 .card{
+  max-height: fit-content;
   width: 190px;
   border-radius: 10px;
   padding: 7px;
@@ -321,12 +330,15 @@ html{
 }
 
 .playbar{
+  flex:1;
   position: sticky;
-  top: 100%;
+  bottom: 0%;
   color: white;
   background-color: black;
   width: 75vw;
   min-height: 100px;
+  max-height: 5rem;
+  height: 5rem;
   padding: 15px;
   align-self: center;
   border-bottom-left-radius: 10px;
@@ -480,6 +492,7 @@ html{
   
   }
   .header{
+    flex: 1;
     width: 100vw;
     /* font-size: smaller; */
   }
@@ -518,10 +531,10 @@ html{
     margin: 0;
     padding: 0;
   }
-  .playbar{
+  /* .playbar{
     position:fixed;
     bottom: 100px;
-  }
+  } */
   .playbarButtons{
     margin: 20px 10px;
     padding: 5px;

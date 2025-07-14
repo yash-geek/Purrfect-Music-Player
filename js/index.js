@@ -86,7 +86,7 @@ const playMusic = (track, pause = false) => {
         name = track.replace(".flac","")
     }
     document.querySelector(".currentSongInfo").innerHTML = decodeURI(name)
-    console.log(track.replace(".mp3",""))
+    //console.log(track.replace(".mp3",""))
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00"
     //volumesetting
     //later change 1
@@ -107,11 +107,11 @@ async function displayAlbums() {
 
         if (e.href.includes("/songs/")) {
             let folder = e.href.split("/").slice(-1)[0]
-            console.log(e.href.split("/").slice(-1));
-            console.log("d");
+            // console.log(e.href.split("/").slice(-1));
+            // console.log("d");
             let a = await fetch(`/songs/${folder}/info.json`);
             let response = await a.json();
-            console.log(response)
+            //console.log(response)
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card myfont flex">
                     <img src="/songs/${folder}/cover.jpeg" alt="" />
                     <button class="playbutton">
@@ -127,7 +127,7 @@ async function displayAlbums() {
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", async item => {
             songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)
-            playMusic(songs[0])
+            //playMusic(songs[0])
 
 
         })

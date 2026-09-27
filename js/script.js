@@ -16,6 +16,24 @@ let currentSong = new Audio();
 let songs;
 let currFolder;
 currentSong.volume = 0.75; //later change 1
+
+function updateSeekProgress(value) {
+    const progress = Math.min(Math.max(value, 0), 1);
+    const progressBar = document.querySelector(".seek-progress");
+    const grabber = document.querySelector(".grabber");
+    const seekbar = document.querySelector(".seekbar");
+
+    if (seekbar && grabber && progressBar) {
+        const barWidth = seekbar.getBoundingClientRect().width || 1;
+        const knobRadius = parseFloat(getComputedStyle(grabber).width) / 2;
+        const barLimit = Math.max(0, barWidth - knobRadius);
+        const knobCenter = Math.min(barLimit, progress * barWidth);
+
+        progressBar.style.width = `${knobCenter}px`;
+        grabber.style.left = `${knobCenter}px`;
+    }
+}
+
 async function getSongs(folder) {
     currFolder = folder;
 
@@ -156,14 +174,14 @@ async function main() {
 
     //Event listener for song track
     currentSong.addEventListener("timeupdate", () => {
-
+        const progress = currentSong.duration ? currentSong.currentTime / currentSong.duration : 0;
         document.querySelector(".songTime").innerHTML = `${secondsToTime(currentSong.currentTime)}/${secondsToTime(currentSong.duration)}`;
-        document.querySelector(".grabber").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
+        updateSeekProgress(progress);
     })
 
     document.querySelector(".seekbar").addEventListener("click", e => {
         let grab = (e.offsetX / e.target.getBoundingClientRect().width);
-        document.querySelector(".grabber").style.left = (grab * 100) + "%";
+        updateSeekProgress(grab);
 
         currentSong.currentTime = (grab) * currentSong.duration;
     })
@@ -256,7 +274,7 @@ async function main() {
         else {
             playMusic(songs[0], true)
             playTrackButtonIcon.src = "logos/play.svg"
-            document.querySelector(".grabber").style.left = 0;
+            updateSeekProgress(0);
         }
     })
 

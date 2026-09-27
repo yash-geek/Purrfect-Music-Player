@@ -359,6 +359,15 @@ html{
   background:#a7a7a751;
   border-radius: 10px;
   cursor: pointer;
+  overflow: hidden;
+}
+.seek-progress{
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #e2f3ff 0%, #d9eaff 42%, #9bb7d1 100%);
+  transition: width 0.25s ease-out;
 }
 .grabber{
   position: absolute;
@@ -368,7 +377,9 @@ html{
   border-radius: 10px;
   bottom: -1.5px;
   left:0%;
-  transition: left 0.5s;
+  transform: translateX(-50%);
+  transition: left 0.25s ease-out;
+  z-index: 2;
 }
 .songList{
   color: white;

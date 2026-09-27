@@ -45,30 +45,28 @@
 }
 
 
-/* Custom scrollbar styles */
 html::-webkit-scrollbar {
-    width: 12px; /* Adjust the width of the scrollbar */
-    height: 12px; /* Adjust the height of the scrollbar (for horizontal scrollbars) */
+    width: 12px;
+    height: 12px;
 }
 
 html::-webkit-scrollbar-track {
-    background: transparent; /* Make the scrollbar track transparent */
+    background: transparent;
 }
 
 html::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.5); /* Set the color for the scrollbar thumb */
-    border-radius: 0; /* No rounded corners, making it a rectangle */
-    display: none; /* Initially hide the scrollbar thumb */
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    display: none;
 }
 
-/* Show scrollbar thumb when scrolling */
 html.scrolling::-webkit-scrollbar-thumb {
-    display: block; /* Show the scrollbar thumb when scrolling */
+    display: block;
 }
 
 html {
-    scrollbar-width: thin; /* For Firefox */
-    scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* For Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
 }
 ::-webkit-scrollbar-button {
     display: none;
@@ -83,9 +81,8 @@ html {
     animation: scroll 0.3s forwards; 
 }
 
-/* Transition effect */
 ::-webkit-scrollbar-thumb {
-    transition: background-color 0.3s ease; /* Smooth transition effect for the thumb */
+    transition: background-color 0.3s ease;
 }
 .cardContainer::-webkit-scrollbar-button {
     display: none ;

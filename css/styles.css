@@ -192,7 +192,6 @@ html{
   border-radius: 10px;
   height: 78vh;
   flex-direction: column;
-  /* align-items: center; */
   position: relative;
 }
 .lib {
@@ -409,7 +408,6 @@ html{
 }
 .info{
   flex-direction: column;
-  /* align-items: center; */
   gap: 5px;
 }
 #musicicon{
@@ -427,18 +425,13 @@ html{
   margin: 2px 0;
 }
 .currentSongInfo{
-  /* height: 50px; */
-  /* width: 50px; */
   background-color: transparent;
   padding: 5px;
-  /* border: 2px solid red; */
 }
 .songTime{
   height: auto ;
   width:auto;
   padding: 5px;
-  /* background-color: #1ed760;
-  border: 2px solid red; */
 }
 .playbarButtons{
   box-sizing: border-box;
@@ -505,7 +498,6 @@ html{
   .header{
     flex: 1;
     width: 100vw;
-    /* font-size: smaller; */
   }
   
   .closeList{
@@ -542,18 +534,11 @@ html{
     margin: 0;
     padding: 0;
   }
-  /* .playbar{
-    position:fixed;
-    bottom: 100px;
-  } */
   .playbarButtons{
     margin: 20px 10px;
     padding: 5px;
     justify-content: space-around;
   }
-  /* .volume{
-    width: 10px;
-  } */
 }
 .volumeseekbar{
   position:absolute;
@@ -608,17 +593,6 @@ html{
   transition: all 0.5s;
 
 }
-
-@media (max-width : 500px){
-  /* .playbutton{
-    border-radius: 100px;
-    width: 60px;
-    height: 60px;
-    bottom: 10000px;
-  } */
-}
-
-
 
 @media (max-width : 400px){
   .songTime{
@@ -677,6 +651,10 @@ html{
 @media (max-width:387px){
   .header{
     overflow-x: auto;
+    flex: 0 0 5rem;
+  }
+  .hamburger{
+    flex-shrink: 0;
   }
 }
 

@@ -10,7 +10,6 @@ albumCards.forEach(albumCard => {
     });
 });
 
-
 const audioPlayer = new Audio();
 const playTrackButton = document.getElementById("playTrackButton");
 const playTrackButtonIcon = document.getElementById("playTrackButtonIcon");
@@ -20,6 +19,9 @@ let currentSongs;
 let currentSongFolder;
 audioPlayer.volume = 0.75;
 
+/** Updates the seek bar position for a normalized playback ratio.
+ * @param {number} progressRatio Playback position from 0 to 1.
+ */
 function updateSeekProgress(progressRatio) {
     const normalizedProgress = Math.min(Math.max(progressRatio, 0), 1);
     const progressBar = document.querySelector(".seek-progress");
@@ -37,10 +39,14 @@ function updateSeekProgress(progressRatio) {
     }
 }
 
-async function getSongs(folder) {
-    currentSongFolder = folder;
+/** Loads a playlist and renders its tracks in the library.
+ * @param {string} songFolder Path to the playlist folder.
+ * @returns {Promise<string[]>} The playlist's track filenames.
+ */
+async function getSongs(songFolder) {
+    currentSongFolder = songFolder;
 
-    const response = await fetch(`${folder}/songs.json`);
+    const response = await fetch(`${songFolder}/songs.json`);
     currentSongs = await response.json();
 
     const songListElement = document.querySelector(".songList").getElementsByTagName("ul")[0];
@@ -142,10 +148,7 @@ async function main() {
             audioPlayer.pause();
             playTrackButtonIcon.src = "logos/play.svg";
         }
-    })
-
-
-
+    });
 
     audioPlayer.addEventListener("timeupdate", () => {
         const progressRatio = audioPlayer.duration ? audioPlayer.currentTime / audioPlayer.duration : 0;

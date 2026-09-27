@@ -19,32 +19,12 @@ currentSong.volume = 0.75; //later change 1
 async function getSongs(folder) {
     currFolder = folder;
 
-    let a = await fetch(`${folder}`)
-    //console.log(a)
-    let response = await a.text();
-    //console.log(response)
-    let div = document.createElement("div");
-    div.innerHTML = response;
-    let as = div.getElementsByTagName("a");
-    //console.log(as)
-    songs = [];
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        if (element.href.endsWith(".flac") || element.href.endsWith(".mp3")) {
-            //console.log()
-            // console.log(folder)
-            // console.log(element.href.split(`${folder}/`)[1])
-            songs.push(element.href.split(`${folder}/`)[1])
-        }
-
-    }
-    //console.log(songs)
-
+    const response = await fetch(`${folder}/songs.json`);
+    songs = await response.json();
 
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
     songUL.innerHTML = ""
     for (const song of songs) {
-        //console.log(song)
         songUL.innerHTML = songUL.innerHTML + `<li> <div class="songinfo flex">
                   <div class="imgnameartist flex">
                     <img id="musicicon" src="logos/music.svg" alt="">
@@ -101,34 +81,21 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`${baseURL}/songs`);
-    let response = await a.text();
-    let div = document.createElement("div");
-    div.innerHTML = response;
-    let anchors = div.getElementsByTagName("a");
+    const response = await fetch(`${baseURL}/songs/albums.json`);
+    const albums = await response.json();
     let cardContainer = document.querySelector(".cardContainer");
-    let array = Array.from(anchors);
 
-
-    for (let index = 0; index < array.length; index++) {
-        const e = array[index];
-        // console.log(e.href.inc)
-        if (e.href.includes("/songs/")) {
-            let folder = e.href.split("/").slice(-1)[0]
-
-            // console.log(e.href.split("/"));
-            // console.log(folder)
-            let a = await fetch(`${baseURL}/songs/${folder}/info.json`);
-            let response = await a.json();
-            cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card myfont flex">
+    for (const folder of albums) {
+        const albumResponse = await fetch(`${baseURL}/songs/${folder}/info.json`);
+        const albumInfo = await albumResponse.json();
+        cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card myfont flex">
                     <img src="songs/${folder}/cover.jpeg" alt="" />
                     <button class="playbutton">
                         <img src="logos/playbutton.svg" alt="" />
                     </button>
-                    <h3>${response.title}</h3>
-                    <p>${response.description}</p>
+                    <h3>${albumInfo.title}</h3>
+                    <p>${albumInfo.description}</p>
                 </div>`
-        }
     }
 
 
